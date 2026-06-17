@@ -17,9 +17,9 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = "django-insecure-troque-esta-chave-antes-de-ir-para-producao"
 
 # Em produção, defina DEBUG = False e configure ALLOWED_HOSTS.
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
