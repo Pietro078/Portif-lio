@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ owner.name }} · {{ owner.role }}{% endblock %}</title>
+  <meta name="description" content="{{ owner.tagline }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home">{{ owner.name }}<span class="logo-dot">.</span></a>
+
+      <nav class="nav" id="siteNav">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato" class="nav-cta">Contato</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© {% now "Y" %} {{ owner.name }}. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="mailto:{{ owner.email }}">E-mail</a>
+        <a href="{{ owner.github }}" target="_blank" rel="noopener">GitHub</a>
+        <a href="{{ owner.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
