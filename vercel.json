@@ -1,6 +1,6 @@
 {
   "version": 2,
-
+  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput",
   "builds": [
     {
       "src": "portfolio/wsgi.py",
@@ -8,10 +8,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/staticfiles/core/(.*)",
-      "dest": "/static/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "portfolio/wsgi.py"
