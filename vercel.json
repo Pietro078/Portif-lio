@@ -12,6 +12,9 @@
       "dest": "/static/$1"
     },
     {
+  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput"
+},
+    {
       "src": "/(.*)",
       "dest": "portfolio/wsgi.py"
     }
