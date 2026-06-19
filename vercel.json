@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput",
   "builds": [
     {
       "src": "portfolio/wsgi.py",
@@ -11,9 +12,6 @@
       "src": "/static/(.*)",
       "dest": "/static/$1"
     },
-    {
-  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput"
-},
     {
       "src": "/(.*)",
       "dest": "portfolio/wsgi.py"
