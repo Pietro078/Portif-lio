@@ -65,7 +65,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "portfolio.wsgi.application"
 ASGI_APPLICATION = "portfolio.asgi.application"
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
@@ -98,7 +102,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/media/"
